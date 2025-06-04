@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mixtape Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🎵 Mixtape Hub</h1>
+    <p>Upload your fire. Let fans vibe. 🔥</p>
+  </header>
+
+  <div class="upload-section">
+    <h2>Upload Your Mixtape</h2>
+    <input type="file" id="upload" accept="audio/*" />
+  </div>
+
+  <div class="track-list" id="trackList">
+    <!-- Uploaded tracks will appear here -->
+  </div>
+
+  <script>
+    const uploadInput = document.getElementById('upload');
+    const trackList = document.getElementById('trackList');
+
+    uploadInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        const url = URL.createObjectURL(file);
+
+        const trackDiv = document.createElement('div');
+        trackDiv.className = 'track';
+
+        const title = document.createElement('h3');
+        title.textContent = file.name;
+
+        const audio = document.createElement('audio');
+        audio.controls = true;
+        audio.src = url;
+
+        const controls = document.createElement('div');
+        controls.className = 'track-controls';
+
+        const likeBtn = document.createElement('button');
+        likeBtn.className = 'like-btn';
+        likeBtn.textContent = '👍 Like (0)';
+        let likes = 0;
+        likeBtn.addEventListener('click', () => {
+          likes++;
+          likeBtn.textContent = `👍 Like (${likes})`;
+        });
+
+        controls.appendChild(likeBtn);
+        trackDiv.appendChild(title);
+        trackDiv.appendChild(audio);
+        trackDiv.appendChild(controls);
+        trackList.appendChild(trackDiv);
+      }
+    });
+  </script>
+</body>
+</html>
