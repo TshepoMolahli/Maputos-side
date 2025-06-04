@@ -1,0 +1,49 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #eee;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background: #0a84ff;
+  padding: 20px;
+  text-align: center;
+}
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+.upload-section, .track-list {
+  padding: 20px;
+}
+.track {
+  background: #222;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+}
+.track audio {
+  width: 100%;
+  margin-top: 10px;
+}
+.track-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.like-btn {
+  background: #ff4081;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+input[type="file"] {
+  background: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+}
